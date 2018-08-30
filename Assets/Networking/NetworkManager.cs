@@ -58,7 +58,8 @@ public class NetworkManager : Photon.MonoBehaviour {
         playerCamera.transform.SetParent(playerSpawn.transform);
         playerCamera.transform.localPosition.Set(playerSpawn.transform.position.x, playerSpawn.transform.position.y, playerSpawn.transform.position.z);
         playerSpawn.transform.position = spawnpoints[randomSpawnPoint].transform.position;
-        Debug.Log("Player spawn object: " + playerSpawn.ToString());
+        playerSpawn.GetComponent<PlayerManager>().data.playerName = PlayerPrefs.GetString("user");
+        playerSpawn.GetComponent<PlayerManager>().data.sessionId = PlayerPrefs.GetString("sessionId");
     }
 
     public virtual void OnJoinedLobby()

@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpgRoyale", "Assembly-CSharp.csproj", "{27A9DE53-FE8F-8B89-EC20-4B1E515E0ADC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{27A9DE53-FE8F-8B89-EC20-4B1E515E0ADC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpgRoyale", "Assembly-CSharp-firstpass.csproj", "{C450D05F-9097-A27A-946B-FEB0AF4FD6C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{C450D05F-9097-A27A-946B-FEB0AF4FD6C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpgRoyale", "Assembly-CSharp-Editor.csproj", "{5727DCC9-DC9B-8E7D-7AA0-83CE26DC1E50}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{5727DCC9-DC9B-8E7D-7AA0-83CE26DC1E50}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

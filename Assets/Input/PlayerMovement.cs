@@ -111,7 +111,7 @@ public class PlayerMovement : Photon.MonoBehaviour {
                     }
                 }
             }
-            Debug.Log("After move input, xChange = " + xChange + " and yChange = " + yChange);
+            //Debug.Log("After move input, xChange = " + xChange + " and yChange = " + yChange);
             if ((xChange != 0 || yChange != 0))
             {
                 Debug.Log("Current x: " + player.data.location.x + " Current y: " + player.data.location.y);

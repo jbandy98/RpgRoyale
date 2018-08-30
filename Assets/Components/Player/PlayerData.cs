@@ -8,5 +8,6 @@ public class PlayerData {
     public string playerName;
     public Vector3Int location;
     public string zoneName;
+    public string sessionId;
 
 }
