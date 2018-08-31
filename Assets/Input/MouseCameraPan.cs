@@ -6,7 +6,7 @@ public class MouseCameraPan : MonoBehaviour {
 
     public GameObject playerCamera;
     Vector3 lastMousePosition;
-    Vector3 homePosition = new Vector3(0.5f, 0.5f, -10f);
+    Vector3 homePosition = new Vector3(2f, 0.5f, -10f);
     public float retractSpeed = 1.0f;
 
 	// Use this for initialization
@@ -25,24 +25,24 @@ public class MouseCameraPan : MonoBehaviour {
             Vector3 diff = currMousePosition - lastMousePosition;
             playerCamera.transform.Translate(-diff * Time.deltaTime);
             // don't let camera pan out of the players view
-            if (playerCamera.transform.localPosition.x > 6.5)
+            if (playerCamera.transform.localPosition.x > homePosition.x + 2f)
             {
-                Vector3 boundLoc = new Vector3(6.5f, playerCamera.transform.localPosition.y, playerCamera.transform.localPosition.z);
+                Vector3 boundLoc = new Vector3(homePosition.x + 2f, playerCamera.transform.localPosition.y, playerCamera.transform.localPosition.z);
                 playerCamera.transform.localPosition = boundLoc;
             }
-            if (playerCamera.transform.localPosition.x < -7)
+            if (playerCamera.transform.localPosition.x < homePosition.x - 2f)
             {
-                Vector3 boundLoc = new Vector3(-7f, playerCamera.transform.localPosition.y, playerCamera.transform.localPosition.z);
+                Vector3 boundLoc = new Vector3(homePosition.x-2f, playerCamera.transform.localPosition.y, playerCamera.transform.localPosition.z);
                 playerCamera.transform.localPosition = boundLoc;
             }
-            if (playerCamera.transform.localPosition.y > 5)
+            if (playerCamera.transform.localPosition.y > homePosition.y + 2f)
             {
-                Vector3 boundLoc = new Vector3(playerCamera.transform.localPosition.x, 5f, playerCamera.transform.localPosition.z);
+                Vector3 boundLoc = new Vector3(playerCamera.transform.localPosition.x, homePosition.y + 2f, playerCamera.transform.localPosition.z);
                 playerCamera.transform.localPosition = boundLoc;
             }
-            if (playerCamera.transform.localPosition.y < -4)
+            if (playerCamera.transform.localPosition.y < homePosition.y - 2f)
             {
-                Vector3 boundLoc = new Vector3(playerCamera.transform.localPosition.x, -4f, playerCamera.transform.localPosition.z);
+                Vector3 boundLoc = new Vector3(playerCamera.transform.localPosition.x, homePosition.y - 2f, playerCamera.transform.localPosition.z);
                 playerCamera.transform.localPosition = boundLoc;
             }
         } else if (!Input.GetMouseButton(2))

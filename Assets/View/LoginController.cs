@@ -11,7 +11,14 @@ public class LoginController : MonoBehaviour {
     public string responseText;
     public GameObject errorPanel;
     public Text errorText;
-	
+    public const string VersionText = "RPG Royale Version 0.1.2   All Rights Reserved.";
+    public Text versionText;
+
+    private void Start()
+    {
+        versionText.text = VersionText;
+    }
+
     public void SendAuthentication()
     {
         Debug.Log("Send Authentication clicked.");

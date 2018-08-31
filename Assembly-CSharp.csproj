@@ -61,10 +61,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Components\GroundType.cs" />
+    <Compile Include="Assets\Components\Map\GroundType.cs" />
+    <Compile Include="Assets\Components\Map\Tile.cs" />
+    <Compile Include="Assets\Components\Map\World.cs" />
     <Compile Include="Assets\Components\Player\PlayerData.cs" />
-    <Compile Include="Assets\Components\Tile.cs" />
-    <Compile Include="Assets\Components\World.cs" />
     <Compile Include="Assets\Input\MouseCameraPan.cs" />
     <Compile Include="Assets\Input\PlayerMovement.cs" />
     <Compile Include="Assets\Networking\NetworkManager.cs" />

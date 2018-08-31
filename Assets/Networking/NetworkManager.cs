@@ -56,7 +56,7 @@ public class NetworkManager : Photon.MonoBehaviour {
         GameObject playerSpawn = PhotonNetwork.Instantiate(player.name,new Vector3(0,0,0), Quaternion.identity,0);
         playerSpawn.GetComponent<PlayerManager>().data.location = new Vector3Int((int)spawnpoints[randomSpawnPoint].transform.position.x, (int)spawnpoints[randomSpawnPoint].transform.position.y, (int)spawnpoints[randomSpawnPoint].transform.position.z);
         playerCamera.transform.SetParent(playerSpawn.transform);
-        playerCamera.transform.localPosition.Set(playerSpawn.transform.position.x, playerSpawn.transform.position.y, playerSpawn.transform.position.z);
+        playerCamera.transform.localPosition.Set(playerSpawn.transform.position.x+2.5f, playerSpawn.transform.position.y, playerSpawn.transform.position.z);
         playerSpawn.transform.position = spawnpoints[randomSpawnPoint].transform.position;
         playerSpawn.GetComponent<PlayerManager>().data.playerName = PlayerPrefs.GetString("user");
         playerSpawn.GetComponent<PlayerManager>().data.sessionId = PlayerPrefs.GetString("sessionId");
