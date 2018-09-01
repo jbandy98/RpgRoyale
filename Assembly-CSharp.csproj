@@ -61,10 +61,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Components\Game\GameState.cs" />
+    <Compile Include="Assets\Components\Item\Armor.cs" />
+    <Compile Include="Assets\Components\Item\Item.cs" />
+    <Compile Include="Assets\Components\Item\Relic.cs" />
+    <Compile Include="Assets\Components\Item\Shield.cs" />
+    <Compile Include="Assets\Components\Item\Weapon.cs" />
+    <Compile Include="Assets\Components\Job\Job.cs" />
     <Compile Include="Assets\Components\Map\GroundType.cs" />
     <Compile Include="Assets\Components\Map\Tile.cs" />
     <Compile Include="Assets\Components\Map\World.cs" />
+    <Compile Include="Assets\Components\Player\Hero.cs" />
+    <Compile Include="Assets\Components\Player\Inventory.cs" />
     <Compile Include="Assets\Components\Player\PlayerData.cs" />
+    <Compile Include="Assets\Components\Skill\ActiveSkill.cs" />
+    <Compile Include="Assets\Components\Skill\PassiveSkill.cs" />
+    <Compile Include="Assets\Components\Skill\Skill.cs" />
+    <Compile Include="Assets\Components\Traits\Trait.cs" />
     <Compile Include="Assets\Input\MouseCameraPan.cs" />
     <Compile Include="Assets\Input\PlayerMovement.cs" />
     <Compile Include="Assets\Networking\NetworkManager.cs" />
@@ -141,10 +154,12 @@
     <Compile Include="Assets\PhotonChatApi\ChatState.cs" />
     <Compile Include="Assets\PhotonChatApi\ChatUserStatus.cs" />
     <Compile Include="Assets\PhotonChatApi\IChatClientListener.cs" />
-    <Compile Include="Assets\View\CameraMovement.cs" />
-    <Compile Include="Assets\View\LoginController.cs" />
-    <Compile Include="Assets\View\PlayerManager.cs" />
-    <Compile Include="Assets\View\WorldController.cs" />
+    <Compile Include="Assets\View\GameScene\CameraMovement.cs" />
+    <Compile Include="Assets\View\GameScene\PlayerManager.cs" />
+    <Compile Include="Assets\View\GameScene\WorldController.cs" />
+    <Compile Include="Assets\View\LobbyScene\CreateHeroPanelController.cs" />
+    <Compile Include="Assets\View\LobbyScene\PlayerHeaderController.cs" />
+    <Compile Include="Assets\View\TitleScene\LoginController.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\Photon Unity Networking\link.xml" />
