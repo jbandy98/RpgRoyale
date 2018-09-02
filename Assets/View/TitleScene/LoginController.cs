@@ -11,7 +11,7 @@ public class LoginController : MonoBehaviour {
     public string responseText;
     public GameObject errorPanel;
     public Text errorText;
-    public const string VersionText = "RPG Royale Version 0.1.2   All Rights Reserved.";
+    public const string VersionText = "RPG Royale Version 0.1.3   All Rights Reserved.";
     public Text versionText;
 
     private void Start()
@@ -26,10 +26,10 @@ public class LoginController : MonoBehaviour {
         user.username = usernameText.text;
         user.password = passwordText.text;
 
-        string url = RestUtil.SERVER_URI + "user/login";
+        string url = RestUtil.LOGIN_SERVICE_URI + "user/login";
         string jsonData = JsonUtility.ToJson(user);
         Debug.Log("Sending jsonData: " + jsonData + " to " + url);
-        Post(url, jsonData);
+        responseText = RestUtil.Instance.Post(url, jsonData).text;
 
         Login login = JsonUtility.FromJson<Login>(responseText);
         if (login != null && login.status.Equals("OK"))
@@ -41,7 +41,7 @@ public class LoginController : MonoBehaviour {
 
             // now lets move into the game scene (eventually we will create a party and wait for players first)
             Debug.Log("User authenticated, going to game!");
-            SceneManager.LoadScene("MainGame");
+            SceneManager.LoadScene("Lobby");
         }   else if (login != null && login.status.Equals("BADCREDENTIALS"))
         {
             errorText.text = "Authentication failed. Please verify your credentials and try again, or click create to start a new account.";
@@ -60,10 +60,10 @@ public class LoginController : MonoBehaviour {
         user.username = usernameText.text;
         user.password = passwordText.text;
 
-        string url = RestUtil.SERVER_URI + "user/create";
+        string url = RestUtil.LOGIN_SERVICE_URI + "user/create";
         string jsonData = JsonUtility.ToJson(user);
         Debug.Log("Sending jsonData: " + jsonData + " to " + url);
-        Post(url, jsonData);
+        responseText = RestUtil.Instance.Post(url, jsonData).text;
 
         CreateUserResponse response = JsonUtility.FromJson<CreateUserResponse>(responseText);
 
@@ -90,40 +90,9 @@ public class LoginController : MonoBehaviour {
         errorPanel.SetActive(false);
     }
 
-    public WWW Post(string url, string json)
+    public void ExitGameClick()
     {
-        WWW www;
-        Hashtable postHeader = new Hashtable();
-        postHeader.Add("Content-Type", "application/json");
-
-        // convert json string to bytes
-        var jsonData = System.Text.Encoding.UTF8.GetBytes(json);
-        Debug.Log("www request being sent to server now.");
-        www = new WWW(url, jsonData, postHeader);
-        
-        StartCoroutine(WaitForRequest(www));
-        return www;
-    }
-
-    IEnumerator WaitForRequest(WWW data)
-    {
-
-        WaitForSeconds w;
-        while (!data.isDone)
-        {
-            w = new WaitForSeconds(0.1f);
-        }
-
-        if (data.error != null)
-        {
-            Debug.Log("There was an error sending request: " + data.error);
-        } else
-        {
-            responseText = data.text;
-            Debug.Log("WWW Request: " + data.text);
-        }
-
-        return data;
+        Application.Quit();
     }
 
 }

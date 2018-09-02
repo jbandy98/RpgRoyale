@@ -163,4 +163,5 @@ public class Hero {
         maxHp = totalHp + (totalEndurance * 2);
         maxSp = totalSp + (totalSpirit * 2);
     }
+
 }
