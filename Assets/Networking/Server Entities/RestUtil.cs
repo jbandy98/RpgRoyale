@@ -8,6 +8,7 @@ public class RestUtil : MonoBehaviour  {
     public static RestUtil _instance;
     public static string LOGIN_SERVICE_URI = "http://localhost:7101/";
     public static string JOB_SERVICE_URI = "http://localhost:7102/";
+    public static string PLAYER_SERVICE_URI = "http://localhost:7103/";
 
     public static RestUtil Instance { get { return _instance;  } }
 

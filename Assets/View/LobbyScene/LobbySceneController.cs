@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LobbySceneController : MonoBehaviour {
 
     public static List<Job> jobs;
+    public static PlayerData playerData;
 
 	// Use this for initialization
 	void Awake () {
@@ -20,6 +21,13 @@ public class LobbySceneController : MonoBehaviour {
         foreach (Job job in jobs) {
             Debug.Log("Job: " + job.jobName + " Role: " + job.roles + " description: " + job.description + " max level: " + job.maxLevel);
         }
+
+        // get the player data
+        string username = PlayerPrefs.GetString("user");
+        string playerUrl = RestUtil.PLAYER_SERVICE_URI + "/player/" + username;
+        string playerJsonResponse = RestUtil.Instance.Get(playerUrl);
+        Debug.Log("Player data json response: " + playerJsonResponse);
+        playerData = JsonUtility.FromJson<PlayerData>(playerJsonResponse);
 	}
 	
     public void PlayGameClick()

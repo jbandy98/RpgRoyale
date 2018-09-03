@@ -7,25 +7,27 @@ using Photon;
 [RequireComponent(typeof(PhotonView))]
 public class PlayerManager : Photon.MonoBehaviour, IPunObservable {
     [SerializeField]
-    public PlayerData data;
+    public PlayerData playerData;
+
+    public GameData gameData;
 
     public TextMeshPro playerText;
 
     void Start()
     {
-        playerText.text = data.playerName;
+        playerText.text = playerData.name;
     }
 
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.isWriting)
         {
-            stream.SendNext(data.playerName);
+            stream.SendNext(playerData.name);
         }
         else
         {
-            data.playerName = (string)stream.ReceiveNext();           
+            playerData.name = (string)stream.ReceiveNext();           
         }
-        playerText.text = data.playerName;
+        playerText.text = playerData.name;
     }
 }

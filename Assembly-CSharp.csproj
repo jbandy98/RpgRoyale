@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Components\Game\GameData.cs" />
     <Compile Include="Assets\Components\Game\GameState.cs" />
     <Compile Include="Assets\Components\Item\Armor.cs" />
     <Compile Include="Assets\Components\Item\Item.cs" />
