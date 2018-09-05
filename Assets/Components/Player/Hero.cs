@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Hero {
+
+    public int heroId;
+    public int gameId;
+    public string playerName;
 
     public string heroName;         // name of hero
     public int level;               // hero's level - higher level is stronger
@@ -11,7 +16,6 @@ public class Hero {
     public int ap;                  // ability points - how to purchase skill for a hero
 
     // Hero base attributes
-
     public int baseStrength;        // allows physical skills and attacks to hit harder, and block ability for shields
     public int baseDexterity;       // determines how often hits can miss, crit, and gives a bonus to physical defense
     public int baseSpeed;           // gives a bonus to attack speed, skill speed, and dodge and parry chance
@@ -33,48 +37,10 @@ public class Hero {
     public int bonusCharisma;
     public int bonusHp;
     public int bonusSp;
-
-    public int totalStrength;
-    public int totalDexterity;
-    public int totalSpeed;
-    public int totalEndurance;
-    public int totalSpirit;
-    public int totalIntelligence;
-    public int totalWillpower;
-    public int totalCharisma;
-    public int totalHp;
-    public int totalSp;
-    public int armorRating;             // total amount of armor points across all items
-    public int resistRating;            // total amount of resist point across all items
-
     public int currentHp;
-    public int maxHp;
     public int currentSp;
-    public int maxSp;
 
-    // combat attributes - generated once at the beginning of each combat, based on gear and other bonuses
-    public float attackSpeed;
-    public int minAutoDamage;
-    public int maxAutoDamage;
-    public int defense;
-    public float blockChance;
-    public float block;
-    public int resist;
-    public float dodgeChance;
-    public float parryChance;
-    public float castingSpeed;
-    public float hitChance;
-    public float critChance;
-    public float magicDeflectChance;
-    public float magicAbsorbChance;
-    public float leadershipBonus;
-    public float regenHpSpeed;
-    public float regenSpSpeed;
-
-    // when in towns, charisma comes into play
-    public float priceHagglePercent;
-    public float questGainPercent;
-
+/*  ITEMS AND SKILLS NOT IMPLEMENTED YET
     // player gear
     public List<Item> equipped;
     public Weapon weapon;
@@ -97,7 +63,177 @@ public class Hero {
     public ActiveSkill active2;
     public ActiveSkill active3;
     public ActiveSkill active4;
-    public List<Skill> equippedSkills;
+    public List<Skill> equippedSkills; */
+
+
+    // calculated attributes 
+
+    public int totalStrength()
+    {
+        return baseStrength + bonusStrength;
+    }
+
+    public int totalDexterity()
+    {
+        return baseDexterity + bonusDexterity;
+    }
+
+    public int totalSpeed()
+    {
+        return baseSpeed + bonusSpeed;
+    }
+
+    public int totalEndurance()
+    {
+        return baseEndurance + bonusEndurance;
+    }
+
+    public int totalSpirit()
+    {
+        return baseSpirit + bonusSpirit;
+    }
+
+    public int totalIntelligence()
+    {
+        return baseIntelligence + bonusIntelligence;
+    }
+
+    public int totalWillpower()
+    {
+        return baseWillpower + bonusWillpower;
+    }
+
+    public int totalCharisma()
+    {
+        return baseCharisma + bonusCharisma;
+    }
+
+    public int totalHp()
+    {
+        return baseHp + bonusHp;
+    }
+
+    public int totalSp()
+    {
+        return baseSp + bonusSp;
+    }
+
+    public int armorRating()
+    {
+        return 0;
+    }          
+
+    public int resistRating()
+    {
+        return 0;
+    }
+
+    public int maxHp()
+    {
+        return totalHp();
+    }  
+    
+    public int maxSp()
+    {
+        return totalSp();
+    }
+
+    public float attackSpeed()
+    {
+        return 1 + ((totalSpeed() / 2) / 100); 
+    }
+
+    public int minAutoDamage()
+    {
+        return totalStrength() * 1;
+    }
+
+    public int maxAutoDamage()
+    {
+        return totalStrength() * 2;
+    }
+
+    public int defense()
+    {
+        return armorRating() + totalDexterity();
+    }
+
+    public float blockChance()
+    {
+        return totalDexterity() * .005f;
+    }
+
+    public int block()
+    {
+        return totalStrength();
+    }
+
+    public int resist()
+    {
+        return resistRating() + totalWillpower();
+    }
+
+    public float dodgeChance()
+    {
+        return 0.05f + totalSpeed() * .005f;
+    }
+
+    public float parryChance()
+    {
+        return 0.05f + totalSpeed() * 0.005f;
+    }
+
+    public float castingSpeed()
+    {
+        return 1 + totalSpeed() * 0.01f;
+    }
+
+    public float hitChance()
+    {
+        return 0.8f + totalDexterity() * 0.005f;
+    }
+
+    public float critChance()
+    {
+        return 0.05f + totalDexterity() * 0.005f;
+    }
+
+    public float magicDeflectChance()
+    {
+        return 0.05f + totalWillpower() * 0.005f;
+    }
+
+    public float magicAbsorbChance()
+    {
+        return 0.05f + totalWillpower() * 0.005f;
+    }
+
+    public float leadershipBonus()
+    {
+        return 1 + totalCharisma() * 0.01f;
+    }
+
+    public float regenHpSpeed()
+    {
+        return 0.01f + totalEndurance() * 0.001f;
+    }
+
+    public float regenSpSpeed()
+    {
+        return 0.01f + totalSpirit() * 0.001f;
+    }
+
+    public float priceHagglePercent()
+    {
+        return totalCharisma() * 0.01f;
+    }
+
+    public float questGainPercent()
+    {
+        return totalCharisma() * 0.01f;
+    }
+
+    /*
 
     public void UpdateHero()
     {
@@ -136,32 +272,13 @@ public class Hero {
         // TODO: go through all passive skills, and add their bonuses
         // TODO: go through all active buffs/debuffs, and add their bonuses/penalties
 
-    }
+    } */
 
-    public void GenerateAttributes()
+    public Hero(string heroName, string playerName, string jobName)
     {
-        // this function will generate all the bonuses above based on gear, passives, buffs, etc.
-        attackSpeed = 1 + ((totalSpeed / 2) / 100) * weapon.weaponSpeedModifier;
-        minAutoDamage = weapon.minDamage + (totalStrength);
-        maxAutoDamage = weapon.maxDamage + (totalStrength);
-        defense = armorRating + (totalDexterity);
-        blockChance = shield.blockChance + (baseDexterity * .005f);
-        block = shield.blockRating + (totalStrength);
-        resist = resistRating + (totalWillpower);
-        dodgeChance = 0.05f + (totalSpeed * .005f);
-        parryChance = 0.05f + (totalSpeed * .005f);
-        castingSpeed = 1 + (totalSpeed * .01f);
-        hitChance = 0.8f + (totalDexterity * .005f);
-        critChance = 0.05f + (totalDexterity * .005f);
-        magicDeflectChance = 0.05f + (totalWillpower * .005f);
-        magicAbsorbChance = 0.05f + (totalWillpower * .005f);
-        leadershipBonus = 1 + (totalCharisma * 0.01f);
-        priceHagglePercent = (totalCharisma * 0.01f);
-        questGainPercent = (totalCharisma * 0.01f);
-        regenHpSpeed = 0.01f + (totalEndurance * 0.001f);
-        regenSpSpeed = 0.01f + (totalSpirit * 0.001f);
-        maxHp = totalHp + (totalEndurance * 2);
-        maxSp = totalSp + (totalSpirit * 2);
+        this.heroName = heroName;
+        this.playerName = playerName;
+        this.className = jobName;
     }
 
 }

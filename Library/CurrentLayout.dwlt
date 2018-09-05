@@ -110,7 +110,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 492}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 65
+  controlID: 9
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 342}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 66
+  controlID: 10
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 492}
   m_MaxSize: {x: 10004, y: 14042}
   vertical: 1
-  controlID: 98
+  controlID: 93
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -229,8 +229,8 @@ MonoBehaviour:
     y: 0
     width: 474
     height: 712
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 204, y: 221}
+  m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -397,9 +397,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 759.64667, y: 377.32642, z: -13.625}
+    m_Target: {x: 598.72546, y: 442.8894, z: -14.5}
     speed: 2
-    m_Value: {x: 759.64667, y: 377.32642, z: -13.625}
+    m_Value: {x: 598.72546, y: 442.8894, z: -14.5}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -431,9 +431,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 1032.1718
+    m_Target: 1115.7911
     speed: 2
-    m_Value: 1032.1718
+    m_Value: 1115.7911
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -524,7 +524,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: d259eeff7c5aeefffe5beefff25eeefff65eeeff2ec8f6fffc30fffffc3affff983bffff1e3dffff1640ffff1e40ffff305bffffea82ffff1afbffff000000003e2f0000dc2f00003e32000070320000
+    m_ExpandedIDs: 469c47fff09c47ff6e9e47ff56a147ff62a147ff5ef64fff8c5258ff50aa60ff109879ff1ae681ff56f281ff04e282ff6edad5ff5ee2d5ff366cffffced4ffff86d5ffff3ed6fffff6d6ffff00d7ffff1afbffff00000000aa30000026330000c4330000ee8c0000de8e00002c8f0000628f0000a29700003aa80000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -543,7 +543,7 @@ MonoBehaviour:
       m_ClientGUIView: {fileID: 10}
     m_SearchString: 
   m_ExpandedScenes:
-  - Title
+  - MainGame
   m_CurrenRootInstanceID: 0
   m_LockTracker:
     m_IsLocked: 0
@@ -585,20 +585,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Resources
+    - Assets/View/TitleScene
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs/Resources
+  - Assets/View/TitleScene
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\projects\RpgRoyale\RpgRoyale
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 6a2e0000
-    m_LastClickedID: 11882
-    m_ExpandedIDs: 00000000382b0000562b00009c2b00007e2d00002e2e000000ca9a3b
+    m_SelectedIDs: bc2b0000
+    m_LastClickedID: 11196
+    m_ExpandedIDs: 000000003a2b0000582b00009e2b0000802d0000302e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -626,7 +626,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000382b0000562b00009c2b00007e2d00002e2e0000
+    m_ExpandedIDs: 000000003a2b0000582b00009e2b0000802d0000302e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

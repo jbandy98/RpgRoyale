@@ -5,7 +5,7 @@ using UnityEngine;
 public class JobLevel {
 
     private long id;
-    private string name;
+    private string jobName;
     private int level;
     private int xpToLevel;
 

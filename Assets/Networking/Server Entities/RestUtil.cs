@@ -9,6 +9,7 @@ public class RestUtil : MonoBehaviour  {
     public static string LOGIN_SERVICE_URI = "http://localhost:7101/";
     public static string JOB_SERVICE_URI = "http://localhost:7102/";
     public static string PLAYER_SERVICE_URI = "http://localhost:7103/";
+    public static string HERO_SERVICE_URI = "http://localhost:7104/";
 
     public static RestUtil Instance { get { return _instance;  } }
 
@@ -26,7 +27,7 @@ public class RestUtil : MonoBehaviour  {
 
     public static string fixJson(string type, string value)
     {
-        value = "{\"" + type + "s\":" + value + "}";
+        value = "{\"" + type + "\":" + value + "}";
         return value;
     }
 

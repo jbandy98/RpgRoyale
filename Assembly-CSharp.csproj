@@ -76,6 +76,7 @@
     <Compile Include="Assets\Components\Map\World.cs" />
     <Compile Include="Assets\Components\Player\Hero.cs" />
     <Compile Include="Assets\Components\Player\Inventory.cs" />
+    <Compile Include="Assets\Components\Player\Party.cs" />
     <Compile Include="Assets\Components\Player\PlayerData.cs" />
     <Compile Include="Assets\Components\Skill\ActiveSkill.cs" />
     <Compile Include="Assets\Components\Skill\PassiveSkill.cs" />
@@ -159,6 +160,7 @@
     <Compile Include="Assets\PhotonChatApi\ChatUserStatus.cs" />
     <Compile Include="Assets\PhotonChatApi\IChatClientListener.cs" />
     <Compile Include="Assets\View\GameScene\CameraMovement.cs" />
+    <Compile Include="Assets\View\GameScene\HeroStatusPanelController.cs" />
     <Compile Include="Assets\View\GameScene\MainGameSceneController.cs" />
     <Compile Include="Assets\View\GameScene\PlayerManager.cs" />
     <Compile Include="Assets\View\GameScene\WorldController.cs" />
