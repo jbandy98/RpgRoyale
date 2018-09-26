@@ -5,12 +5,12 @@ using UnityEngine;
 [System.Serializable]
 public class GameData {
 
-    public string playerId;            // username of player
+    public string playerId;         // username of player
     public int gameId;              // the id of the game the player is in
     public GameState gameState;     // the current state of this game to re-manage login if needed
-    public List<Hero> party;        // the player's party of 4 heroes
-    public Inventory inventory;     // The player's item inventory for this game session (clears each game)
+    public float lavaTimer;         // how much time until the lava consumes the next level of the island
     public int gold;                // the player's gold this game session (clears each game)
-    public Vector3 location;        // player's location on the map
-    public string sessionId;        // session id for some security
+    public int locX;                // player's location on the map x axis
+    public int locY;                // player's location on the y axis
+
 }

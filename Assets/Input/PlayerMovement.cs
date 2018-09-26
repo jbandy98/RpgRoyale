@@ -29,7 +29,7 @@ public class PlayerMovement : Photon.MonoBehaviour {
     private void Start()
     {
         player = this.gameObject.GetComponent<PlayerManager>();
-        startPosition = new Vector3(player.gameData.location.x, player.gameData.location.y, 0);
+        startPosition = new Vector3(player.gameData.locX, player.gameData.locY, 0);
         transform.position = startPosition;
         world = WorldController.World;
     }
@@ -114,9 +114,9 @@ public class PlayerMovement : Photon.MonoBehaviour {
             //Debug.Log("After move input, xChange = " + xChange + " and yChange = " + yChange);
             if ((xChange != 0 || yChange != 0))
             {
-                Debug.Log("Current x: " + player.gameData.location.x + " Current y: " + player.gameData.location.y);
-                Debug.Log("Trying to move to: " + ((int)player.gameData.location.x + xChange).ToString() + ", " + ((int)player.gameData.location.y + yChange).ToString() + " Tile type: " + world.GetTileAt((int)player.gameData.location.x + xChange, (int)player.gameData.location.y + yChange).GroundType.ToString());
-                GroundType groundType = world.GetTileAt((int)player.gameData.location.x + xChange, (int)player.gameData.location.y + yChange).GroundType;
+                Debug.Log("Current x: " + player.gameData.locX + " Current y: " + player.gameData.locY);
+                Debug.Log("Trying to move to: " + ((int)player.gameData.locX + xChange).ToString() + ", " + ((int)player.gameData.locY + yChange).ToString() + " Tile type: " + world.GetTileAt((int)player.gameData.locX + xChange, (int)player.gameData.locY + yChange).GroundType.ToString());
+                GroundType groundType = world.GetTileAt((int)player.gameData.locX + xChange, (int)player.gameData.locY + yChange).GroundType;
                 if (groundType == GroundType.WATER || groundType == GroundType.MOUNTAIN)
                 {
                     Debug.Log("Cannot move, impassable tile.");
@@ -145,7 +145,8 @@ public class PlayerMovement : Photon.MonoBehaviour {
             endPosition = new Vector3(startPosition.x + System.Math.Sign(xChange) * gridSize,
                 startPosition.y + System.Math.Sign(yChange) * gridSize, startPosition.z);
         }
-        player.gameData.location = new Vector3Int((int)endPosition.x, (int)endPosition.y, 0);
+        player.gameData.locX = (int)endPosition.x;
+        player.gameData.locY = (int)endPosition.y;
 
         if (allowDiagonals && correctDiagonalSpeed && xChange != 0 && yChange != 0)
         {

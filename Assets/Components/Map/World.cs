@@ -30,6 +30,7 @@ public class World  {
             }
         }
 
+        Random.seed = 54;
         GenerateWorld();
     }
 

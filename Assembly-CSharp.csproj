@@ -84,6 +84,7 @@
     <Compile Include="Assets\Components\Traits\Trait.cs" />
     <Compile Include="Assets\Input\MouseCameraPan.cs" />
     <Compile Include="Assets\Input\PlayerMovement.cs" />
+    <Compile Include="Assets\Networking\LobbyManager.cs" />
     <Compile Include="Assets\Networking\NetworkManager.cs" />
     <Compile Include="Assets\Networking\Server Entities\CreateUserResponse.cs" />
     <Compile Include="Assets\Networking\Server Entities\JsonHelper.cs" />
@@ -167,6 +168,7 @@
     <Compile Include="Assets\View\LobbyScene\CreateHeroPanelController.cs" />
     <Compile Include="Assets\View\LobbyScene\LobbySceneController.cs" />
     <Compile Include="Assets\View\LobbyScene\PlayerHeaderController.cs" />
+    <Compile Include="Assets\View\TabNavigation.cs" />
     <Compile Include="Assets\View\TitleScene\LoginController.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />

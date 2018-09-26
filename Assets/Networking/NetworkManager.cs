@@ -53,17 +53,18 @@ public class NetworkManager : Photon.MonoBehaviour {
         Debug.Log("Connected to Room: " + room.Name);
         // pick a random spawn point
         int randomSpawnPoint = Random.Range(0, spawnpoints.Count);
-        GameObject playerSpawn = PhotonNetwork.Instantiate(player.name,new Vector3(0,0,0), Quaternion.identity,0);
-        playerSpawn.GetComponent<PlayerManager>().gameData.location = new Vector3Int((int)spawnpoints[randomSpawnPoint].transform.position.x, (int)spawnpoints[randomSpawnPoint].transform.position.y, (int)spawnpoints[randomSpawnPoint].transform.position.z);
+        GameObject playerSpawn = PhotonNetwork.Instantiate(player.name, new Vector3(0, 0, 0), Quaternion.identity, 0);
+        playerSpawn.GetComponent<PlayerManager>().gameData.locX = (int)spawnpoints[randomSpawnPoint].transform.position.x;
+        playerSpawn.GetComponent<PlayerManager>().gameData.locY = (int)spawnpoints[randomSpawnPoint].transform.position.y;
         playerCamera.transform.SetParent(playerSpawn.transform);
-        playerCamera.transform.localPosition.Set(playerSpawn.transform.position.x+2.5f, playerSpawn.transform.position.y, playerSpawn.transform.position.z);
+        playerCamera.transform.localPosition.Set(playerSpawn.transform.position.x + 2.5f, playerSpawn.transform.position.y, playerSpawn.transform.position.z);
         playerSpawn.transform.position = spawnpoints[randomSpawnPoint].transform.position;
         PlayerManager playerManager = playerSpawn.GetComponent<PlayerManager>();
         playerManager.playerData.name = PlayerPrefs.GetString("user");
         playerManager.gameData.playerId = PlayerPrefs.GetString("user");
         playerManager.playerData.session = PlayerPrefs.GetString("sessionId");
-        playerManager.gameData.sessionId = PlayerPrefs.GetString("sessionId");
     }
+
 
     public virtual void OnJoinedLobby()
     {
