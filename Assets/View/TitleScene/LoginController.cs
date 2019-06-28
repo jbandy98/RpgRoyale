@@ -26,7 +26,7 @@ public class LoginController : MonoBehaviour {
         user.username = usernameText.text;
         user.password = passwordText.text;
 
-        string url = RestUtil.LOGIN_SERVICE_URI + "user/login";
+        string url = RestUtil.LOGIN_SERVICE_URI + "login";
         string jsonData = JsonUtility.ToJson(user);
         Debug.Log("Sending jsonData: " + jsonData + " to " + url);
         responseText = RestUtil.Instance.Post(url, jsonData).text;
@@ -60,7 +60,7 @@ public class LoginController : MonoBehaviour {
         user.username = usernameText.text;
         user.password = passwordText.text;
 
-        string url = RestUtil.LOGIN_SERVICE_URI + "user/create";
+        string url = RestUtil.LOGIN_SERVICE_URI + "create";
         string jsonData = JsonUtility.ToJson(user);
         Debug.Log("Sending jsonData: " + jsonData + " to " + url);
         responseText = RestUtil.Instance.Post(url, jsonData).text;

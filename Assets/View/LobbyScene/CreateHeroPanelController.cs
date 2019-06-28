@@ -14,6 +14,7 @@ public class CreateHeroPanelController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         jobs = LobbySceneController.jobs;
+
         List<Dropdown.OptionData> classOptions = new List<Dropdown.OptionData>();
         foreach (Job job in jobs) {
             Dropdown.OptionData optionData = new Dropdown.OptionData();

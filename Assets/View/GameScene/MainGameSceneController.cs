@@ -11,18 +11,21 @@ public class MainGameSceneController : MonoBehaviour {
     public static GameData gameData;
     public static string username;
     public HeroStatusPanelController[] statusPanels;
+    public int gameId;
 
 	// Use this for initialization
 	void Start () {
+        //TODO: Remove hard coded game id
+        gameId = 1;
         // get the player data
         username = PlayerPrefs.GetString("user");
-        string playerUrl = RestUtil.PLAYER_SERVICE_URI + "player/" + username;
+        string playerUrl = RestUtil.PLAYER_SERVICE_URI + username;
         string playerJsonResponse = RestUtil.Instance.Get(playerUrl);
         Debug.Log("Player data json response: " + playerJsonResponse);
         playerData = JsonUtility.FromJson<PlayerData>(playerJsonResponse);
 
         // get the party data
-        string url = RestUtil.HERO_SERVICE_URI + "hero/user/" + username;
+        string url = RestUtil.HERO_SERVICE_URI + "user/" + username;
         string jsonResponse = RestUtil.Instance.Get(url);
         jsonResponse = RestUtil.fixJson("party", jsonResponse);
         Debug.Log("Json Response: " + jsonResponse);
@@ -38,6 +41,9 @@ public class MainGameSceneController : MonoBehaviour {
         {
             statusPanels[i].UpdateStats(party[i]);
         }
+
+        GameService.startNewGame(gameId);
+        
     }
 	
 	// Update is called once per frame

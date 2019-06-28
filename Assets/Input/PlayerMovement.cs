@@ -32,6 +32,7 @@ public class PlayerMovement : Photon.MonoBehaviour {
         startPosition = new Vector3(player.gameData.locX, player.gameData.locY, 0);
         transform.position = startPosition;
         world = WorldController.World;
+        GameDataService.updateGameData(player.gameData);
     }
 
     public void Update()
@@ -123,6 +124,7 @@ public class PlayerMovement : Photon.MonoBehaviour {
                 }
                 else
                 {
+                    GameDataService.updateGameData(player.gameData);
                     StartCoroutine(move(transform));
                 }
             }

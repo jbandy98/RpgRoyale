@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NetworkManager : Photon.MonoBehaviour {
+public class NetworkManager : Photon.PunBehaviour {
 
     public string roomName = "TestServer";
     public Room room;
     public GameObject player;
     public List<Transform> spawnpoints;
     public Camera playerCamera;
+    public bool connected = false;
+    public int gameId;
 
     /// <summary>Connect automatically? If false you can set this to true later on or call ConnectUsingSettings in your own scripts.</summary>
     public bool AutoConnect = true;
@@ -21,16 +23,54 @@ public class NetworkManager : Photon.MonoBehaviour {
     // Use this for initialization
     void Start () {
         PhotonNetwork.autoJoinLobby = false;
+        SetupPlayer();
+    }
+
+    void SetupPlayer()
+    {
+        gameId = 1;
+        room = PhotonNetwork.room;
+        Debug.Log("Connected to Room: " + room.Name);
+        // pick a random spawn point
+        int randomSpawnPoint = Random.Range(0, spawnpoints.Count);
+        GameObject playerSpawn = PhotonNetwork.Instantiate(player.name, new Vector3(0, 0, 0), Quaternion.identity, 0);
+        playerSpawn.GetComponent<PlayerManager>().gameData.gameId = gameId;
+        playerSpawn.GetComponent<PlayerManager>().gameData.locX = (int)spawnpoints[randomSpawnPoint].transform.position.x;
+        playerSpawn.GetComponent<PlayerManager>().gameData.locY = (int)spawnpoints[randomSpawnPoint].transform.position.y;
+        playerCamera.transform.SetParent(playerSpawn.transform);
+        playerCamera.transform.localPosition.Set(playerSpawn.transform.position.x + 2.5f, playerSpawn.transform.position.y, playerSpawn.transform.position.z);
+        playerSpawn.transform.position = spawnpoints[randomSpawnPoint].transform.position;
+        PlayerManager playerManager = playerSpawn.GetComponent<PlayerManager>();
+        playerManager.playerData.name = PlayerPrefs.GetString("user");
+        playerManager.gameData.playerId = PlayerPrefs.GetString("user");
+        playerManager.playerData.session = PlayerPrefs.GetString("sessionId");
     }
 
     private void Update()
     {
+        if (connected)
+        {
+            return;
+        }
+        else
+        {
+            Reconnect();
+        }
+    }
+
+    void Reconnect()
+    {
         if (ConnectInUpdate && AutoConnect && !PhotonNetwork.connected)
         {
-            Debug.Log("Update() was called by Unity. Scene is loaded. Let's connect to the Photon Master Server. Calling: PhotonNetwork.ConnectUsingSettings();");
+            Debug.Log("Let's connect to the Photon Master Server. Calling: PhotonNetwork.ConnectUsingSettings();");
 
             ConnectInUpdate = false;
             PhotonNetwork.ConnectUsingSettings(Version + "." + SceneManagerHelper.ActiveSceneBuildIndex);
+        }
+        else
+        {
+            Debug.Log("Already connected to game server in room: " + room.Name);
+            connected = true;
         }
     }
 
@@ -50,19 +90,9 @@ public class NetworkManager : Photon.MonoBehaviour {
     void OnJoinedRoom()
     {
         room = PhotonNetwork.room;
+        connected = true;
         Debug.Log("Connected to Room: " + room.Name);
-        // pick a random spawn point
-        int randomSpawnPoint = Random.Range(0, spawnpoints.Count);
-        GameObject playerSpawn = PhotonNetwork.Instantiate(player.name, new Vector3(0, 0, 0), Quaternion.identity, 0);
-        playerSpawn.GetComponent<PlayerManager>().gameData.locX = (int)spawnpoints[randomSpawnPoint].transform.position.x;
-        playerSpawn.GetComponent<PlayerManager>().gameData.locY = (int)spawnpoints[randomSpawnPoint].transform.position.y;
-        playerCamera.transform.SetParent(playerSpawn.transform);
-        playerCamera.transform.localPosition.Set(playerSpawn.transform.position.x + 2.5f, playerSpawn.transform.position.y, playerSpawn.transform.position.z);
-        playerSpawn.transform.position = spawnpoints[randomSpawnPoint].transform.position;
-        PlayerManager playerManager = playerSpawn.GetComponent<PlayerManager>();
-        playerManager.playerData.name = PlayerPrefs.GetString("user");
-        playerManager.gameData.playerId = PlayerPrefs.GetString("user");
-        playerManager.playerData.session = PlayerPrefs.GetString("sessionId");
+
     }
 
 
@@ -80,6 +110,19 @@ public class NetworkManager : Photon.MonoBehaviour {
 
     public virtual void OnFailedToConnectToPhoton(DisconnectCause cause)
     {
+        connected = false;
         Debug.LogError("Cause: " + cause);
+    }
+
+    public override void OnDisconnectedFromPhoton()
+    {
+        connected = false;
+        Debug.Log("You have been disconnected from the game!");
+    }
+
+    public override void OnPhotonPlayerDisconnected(PhotonPlayer otherPlayer)
+    {
+        // if a player is disconnected from the game, what do we do to clean them up?
+        Debug.Log("Player left the game: " + otherPlayer.userId);
     }
 }

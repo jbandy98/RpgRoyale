@@ -7,6 +7,7 @@ public class LobbyManager : MonoBehaviour {
     public string roomName = "TestLobbyServer";
     public Room room;
     public string username;
+    public int players;
 
     /// <summary>Connect automatically? If false you can set this to true later on or call ConnectUsingSettings in your own scripts.</summary>
     public bool AutoConnect = false;
@@ -85,5 +86,10 @@ public class LobbyManager : MonoBehaviour {
         }
         Debug.Log("Player list being returned: " + playerStr.ToString());
         return playerStr.ToString();
+    }
+
+    public int GetPlayerCount()
+    {
+        return PhotonNetwork.playerList.Length;
     }
 }

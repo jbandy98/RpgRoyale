@@ -14,8 +14,11 @@ public class LobbySceneController : MonoBehaviour {
     public string username;
     public GameObject setupGamePanel;
     public GameObject gameLobbyPanel;
+    public GameObject startButton;
     public LobbyManager lobbyManager;
-
+    public int minPlayers = 1;
+    public GameObject readyButton;
+    public Toggle readyCheck;
     public InputField chatInput;
     public float chatDelay = 2.0f;
     public Text chatText;
@@ -23,12 +26,17 @@ public class LobbySceneController : MonoBehaviour {
     PhotonView photonView;
     public float timeElapsed;
     public bool sentText = false;
+    public bool masterClient;
+    public int playersReady;
 
 	// Use this for initialization
 	void Awake () {
         photonView = GetComponent<PhotonView>();
+	}
 
-        string url = RestUtil.JOB_SERVICE_URI + "/jobs";
+    private void Start()
+    {
+        string url = RestUtil.JOB_SERVICE_URI;
         string jsonResponse = RestUtil.Instance.Get(url);
         jsonResponse = RestUtil.fixJson("jobs", jsonResponse);
         Debug.Log("Json Response: " + jsonResponse);
@@ -37,18 +45,22 @@ public class LobbySceneController : MonoBehaviour {
         lobbyManager = GetComponent<LobbyManager>();
 
         Debug.Log("Jobs count: " + jobs.Count);
-        foreach (Job job in jobs) {
+        foreach (Job job in jobs)
+        {
             Debug.Log("Job: " + job.jobName + " Role: " + job.roles + " description: " + job.description + " max level: " + job.maxLevel);
         }
 
         // get the player data
         username = PlayerPrefs.GetString("user");
-        string playerUrl = RestUtil.PLAYER_SERVICE_URI + "player/" + username;
+        string playerUrl = RestUtil.PLAYER_SERVICE_URI + username;
         string playerJsonResponse = RestUtil.Instance.Get(playerUrl);
         Debug.Log("Player data json response: " + playerJsonResponse);
         playerData = JsonUtility.FromJson<PlayerData>(playerJsonResponse);
-	}
-	
+        setupGamePanel.SetActive(true);
+        gameLobbyPanel.SetActive(false);
+        startButton.SetActive(false);
+    }
+
     public void FindGameClick()
     {
 
@@ -57,7 +69,7 @@ public class LobbySceneController : MonoBehaviour {
         gameLobbyPanel.SetActive(true);
 
         // need to see if the player already has heroes created. if so, destroy them
-        string cleanupUrl = RestUtil.HERO_SERVICE_URI + "hero/cleanup/" + username;
+        string cleanupUrl = RestUtil.HERO_SERVICE_URI + "cleanup/" + username;
         Debug.Log("Sending call to : " + cleanupUrl);
         string cleanupResponse = RestUtil.Instance.Get(cleanupUrl);
         Debug.Log("Json Response: " + cleanupResponse);
@@ -69,7 +81,7 @@ public class LobbySceneController : MonoBehaviour {
         {
             party[i] = new Hero(heroName[i].text, username, heroClass[i].options[heroClass[i].value].text);
             party[i].level = 1;
-            string url = RestUtil.HERO_SERVICE_URI + "hero/create";
+            string url = RestUtil.HERO_SERVICE_URI + "create";
             Debug.Log("Sending create hero request to: " + url);
             string jsonData = JsonUtility.ToJson(party[i]);
             Debug.Log("Hero json data: " + jsonData);
@@ -80,6 +92,7 @@ public class LobbySceneController : MonoBehaviour {
         // enable the game lobby and update player list
         lobbyManager.ConnectToNetwork();
         PhotonNetwork.player.NickName = username;
+
     }
 
     public void SendChatTextClick()
@@ -116,6 +129,46 @@ public class LobbySceneController : MonoBehaviour {
     {
         photonView.RPC("UpdatePlayers", PhotonTargets.All);
         photonView.RPC("UpdateChatBox", PhotonTargets.All, "\n" + username + " joined the game.");
+        if (PhotonNetwork.room.PlayerCount >= minPlayers)
+        {
+            readyButton.SetActive(true);
+        } else
+        {
+            readyButton.SetActive(false);
+        }
+    }
+
+    public void onReadyCheck()
+    {
+        Debug.Log("Player is ready. Checking if all players are ready...");
+        if (readyButton.GetActive())
+        {
+            photonView.RPC("SendReady", PhotonTargets.MasterClient);
+        } else
+        {
+            photonView.RPC("SendNotReady", PhotonTargets.MasterClient);
+        }
+    }
+
+    [PunRPC]
+    public void SendReady()
+    {
+        playersReady++;
+        if(playersReady == PhotonNetwork.room.PlayerCount)
+        {
+            startButton.SetActive(true);
+        }
+    }
+
+    [PunRPC]
+    public void SendNotReady()
+    {
+        playersReady--;
+        if(playersReady < 0)
+        {
+            playersReady = 0;
+        }
+        startButton.SetActive(false);
     }
 
     [PunRPC]
@@ -131,6 +184,12 @@ public class LobbySceneController : MonoBehaviour {
         // get the game map
 
         // start the game
+        photonView.RPC("StartGame", PhotonTargets.All);
+    }
+
+    [PunRPC]
+    public void StartGame()
+    {
         StartCoroutine(StartGameScene());
     }
 

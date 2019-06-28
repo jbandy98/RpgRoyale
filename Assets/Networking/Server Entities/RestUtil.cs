@@ -6,10 +6,14 @@ using System.IO;
 
 public class RestUtil : MonoBehaviour  {
     public static RestUtil _instance;
-    public static string LOGIN_SERVICE_URI = "http://localhost:7101/";
-    public static string JOB_SERVICE_URI = "http://localhost:7102/";
-    public static string PLAYER_SERVICE_URI = "http://localhost:7103/";
-    public static string HERO_SERVICE_URI = "http://localhost:7104/";
+    public static string LOGIN_SERVICE_URI = "http://localhost:7101/user/";
+    public static string JOB_SERVICE_URI = "http://localhost:7102/jobs/";
+    public static string PLAYER_SERVICE_URI = "http://localhost:7103/player/";
+    public static string HERO_SERVICE_URI = "http://localhost:7104/hero/";
+    public static string WORLD_SERVICE_URI = "http://localhost:7105/world/";
+    public static string GAME_DATA_URI = "http://localhost:7106/gamedata/";
+    public static string ENEMY_SERVICE_URI = "http://localhost:7108/enemy/";
+    public static string GAME_SERVER_URI = "http://localhost:7110/game/";
 
     public static RestUtil Instance { get { return _instance;  } }
 
