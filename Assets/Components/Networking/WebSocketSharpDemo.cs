@@ -8,6 +8,7 @@ public class WebSocketSharpDemo : MonoBehaviour
 {
     public Text hostField;
     public Text messageField;
+    public CombatData combatData;
 
     WebSocket webSocket;
     // Start is called before the first frame update
@@ -29,6 +30,13 @@ public class WebSocketSharpDemo : MonoBehaviour
     public void SendMessage()
     {
         webSocket.Send(messageField.text);
+    }
+
+    public void SendCombatMessage()
+    {
+        string combatDataMsg = JsonUtility.ToJson(getMockCombatData());
+        Debug.Log("Combat msg sent: " + combatDataMsg);
+        webSocket.Send(combatDataMsg);
     }
 
     // Update is called once per frame
@@ -55,5 +63,17 @@ public class WebSocketSharpDemo : MonoBehaviour
     private void OnCloseHandler(object sender, CloseEventArgs e)
     {
         Debug.Log("Websocket closed with reason: " + e.Reason);
+    }
+
+    CombatData getMockCombatData()
+    {
+        combatData = new CombatData();
+        combatData.gameId = 1;
+        GameData playerData = new GameData();
+        playerData.gameId = 1;
+        playerData.playerId = "jbandy98";
+        combatData.playerData = playerData;
+        combatData.combatState = "combat";
+        return combatData;
     }
 }

@@ -37,9 +37,9 @@ MonoBehaviour:
   - PunRespawn
   - RequestForPickupItems
   - RequestForPickupTimes
-  - UpdateChatBox
-  - UpdatePlayers
+  - SendNotReady
   - SendReady
   - StartGame
-  - SendNotReady
+  - UpdateChatBox
+  - UpdatePlayers
   DisableAutoOpenWizard: 1
