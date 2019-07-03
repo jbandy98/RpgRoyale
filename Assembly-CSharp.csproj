@@ -79,6 +79,9 @@
     <Compile Include="Assets\Components\Map\GroundType.cs" />
     <Compile Include="Assets\Components\Map\Tile.cs" />
     <Compile Include="Assets\Components\Map\World.cs" />
+    <Compile Include="Assets\Components\Networking\NetworkingClient.cs" />
+    <Compile Include="Assets\Components\Networking\NetworkingServer.cs" />
+    <Compile Include="Assets\Components\Networking\WebSocketSharpDemo.cs" />
     <Compile Include="Assets\Components\Player\GameDataService.cs" />
     <Compile Include="Assets\Components\Player\Hero.cs" />
     <Compile Include="Assets\Components\Player\Inventory.cs" />
