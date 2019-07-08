@@ -2,47 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 using WebSocketSharp;
-using UnityEngine.UI;
 
-public class WebSocketSharpDemo : MonoBehaviour
+public class CombatSocket 
 {
-    public Text hostField;
-    public Text messageField;
     public CombatData combatData;
-
+    public CombatController combatController;
     WebSocket webSocket;
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    public void StartConnection()
+    public void StartConnection(CombatController combatController, GameData gameData)
     {
-        webSocket = new WebSocket(hostField.text);
+        this.combatController = combatController;
+        webSocket = new WebSocket(RestUtil.COMBAT_WEBSOCKET);
         webSocket.OnOpen += OnOpenHandler;
         webSocket.OnMessage += OnMessageHandler;
         webSocket.OnClose += OnCloseHandler;
 
         webSocket.ConnectAsync();
+        SendTestCombatMessage(gameData);
     }
 
     public void SendMessage()
     {
-        webSocket.Send(messageField.text);
+        // todo: add messages that need sent for combat actions
+        
     }
 
-    public void SendCombatMessage()
+    public void SendTestCombatMessage(GameData gameData)
     {
-        string combatDataMsg = JsonUtility.ToJson(getMockCombatData());
+        string combatDataMsg = JsonUtility.ToJson(GetTestMessage(gameData));
         Debug.Log("Combat msg sent: " + combatDataMsg);
         webSocket.Send(combatDataMsg);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnOpenHandler(object sender, System.EventArgs e)
@@ -57,7 +46,10 @@ public class WebSocketSharpDemo : MonoBehaviour
 
     private void OnMessageHandler(object sender, MessageEventArgs e)
     {
-        Debug.Log("Websocket server said: " + e.Data);
+        combatData = JsonUtility.FromJson<CombatData>(e.Data);
+        combatController.combatData = combatData;
+
+        Debug.Log("Websocket server got combat data from: " + combatData.playerData.playerId);
     }
 
     private void OnCloseHandler(object sender, CloseEventArgs e)
@@ -65,13 +57,13 @@ public class WebSocketSharpDemo : MonoBehaviour
         Debug.Log("Websocket closed with reason: " + e.Reason);
     }
 
-    CombatData getMockCombatData()
+    public CombatData GetTestMessage(GameData gameData)
     {
         combatData = new CombatData();
-        combatData.gameId = 1;
+        combatData.gameId = gameData.gameId;
         GameData playerData = new GameData();
-        playerData.gameId = 1;
-        playerData.playerId = "jbandy98";
+        playerData.gameId = gameData.gameId;
+        playerData.playerId = gameData.playerId;
         combatData.playerData = playerData;
         combatData.combatState = "combat";
         return combatData;

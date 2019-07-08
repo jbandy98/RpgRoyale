@@ -14,6 +14,8 @@ public class RestUtil : MonoBehaviour  {
     public static string GAME_DATA_URI = "http://localhost:7106/gamedata/";
     public static string ENEMY_SERVICE_URI = "http://localhost:7108/enemy/";
     public static string GAME_SERVER_URI = "http://localhost:7110/game/";
+    public static string COMBAT_SERVER_URI = "http://localhost:7112/combat/";
+    public static string COMBAT_WEBSOCKET = "ws://localhost:7112/combatsocket";
 
     public static RestUtil Instance { get { return _instance;  } }
 

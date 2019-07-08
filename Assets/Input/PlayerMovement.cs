@@ -19,6 +19,7 @@ public class PlayerMovement : Photon.MonoBehaviour {
     private int xChange;
     private int yChange;
     private bool isMoving = false;
+    private bool inCombat = false;
     public Vector3 startPosition;
     public Vector3 endPosition;
     private float t;
@@ -42,10 +43,18 @@ public class PlayerMovement : Photon.MonoBehaviour {
             return;
         }
 
+        if (player.gameData.gameState.Equals("combat"))
+        {
+            inCombat = true;
+        } else if (player.gameData.gameState.Equals("world"))
+        {
+            inCombat = false;
+        }
+
         xChange = 0;
         yChange = 0;
 
-        if (!isMoving)
+        if (!isMoving && !inCombat)
         {
             if (Input.GetMouseButton(0))
             {
@@ -167,7 +176,10 @@ public class PlayerMovement : Photon.MonoBehaviour {
         }
         
         isMoving = false;
-        
+        if (player.gameData.gameState.Equals("combat"))
+        {
+            inCombat = true;
+        }
         yield return 0;
     }
 }
