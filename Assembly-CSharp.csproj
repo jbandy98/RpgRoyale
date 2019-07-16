@@ -60,215 +60,227 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Components\Combat\CombatCell.cs" />
-    <Compile Include="Assets\Components\Combat\CombatController.cs" />
-    <Compile Include="Assets\Components\Combat\CombatService.cs" />
-    <Compile Include="Assets\Components\Enemy\Encounter.cs" />
-    <Compile Include="Assets\Components\Enemy\Encounters.cs" />
-    <Compile Include="Assets\Components\Enemy\Enemy.cs" />
-    <Compile Include="Assets\Components\Enemy\EnemyAI.cs" />
-    <Compile Include="Assets\Components\Enemy\EnemyManager.cs" />
-    <Compile Include="Assets\Components\Enemy\EnemyService.cs" />
-    <Compile Include="Assets\Components\Game\GameData.cs" />
-    <Compile Include="Assets\Components\Game\GameState.cs" />
-    <Compile Include="Assets\Components\Item\Armor.cs" />
-    <Compile Include="Assets\Components\Item\Item.cs" />
-    <Compile Include="Assets\Components\Item\Relic.cs" />
-    <Compile Include="Assets\Components\Item\Shield.cs" />
-    <Compile Include="Assets\Components\Item\Weapon.cs" />
-    <Compile Include="Assets\Components\Job\Job.cs" />
-    <Compile Include="Assets\Components\Job\JobLevel.cs" />
-    <Compile Include="Assets\Components\Job\Jobs.cs" />
-    <Compile Include="Assets\Components\Map\GroundType.cs" />
-    <Compile Include="Assets\Components\Map\Tile.cs" />
-    <Compile Include="Assets\Components\Map\World.cs" />
-    <Compile Include="Assets\Components\Networking\AIStrategy.cs" />
-    <Compile Include="Assets\Components\Networking\CombatData.cs" />
-    <Compile Include="Assets\Components\Networking\CombatGrid.cs" />
-    <Compile Include="Assets\Components\Networking\CombatSocket.cs" />
-    <Compile Include="Assets\Components\Networking\CombatUnit.cs" />
-    <Compile Include="Assets\Components\Networking\EnemyUnit.cs" />
-    <Compile Include="Assets\Components\Networking\GridLocation.cs" />
-    <Compile Include="Assets\Components\Networking\HeroUnit.cs" />
-    <Compile Include="Assets\Components\Networking\NetworkingClient.cs" />
-    <Compile Include="Assets\Components\Networking\NetworkingServer.cs" />
-    <Compile Include="Assets\Components\Networking\ThreatLevel.cs" />
-    <Compile Include="Assets\Components\Player\GameDataService.cs" />
-    <Compile Include="Assets\Components\Player\Hero.cs" />
-    <Compile Include="Assets\Components\Player\Inventory.cs" />
-    <Compile Include="Assets\Components\Player\Party.cs" />
-    <Compile Include="Assets\Components\Player\PlayerData.cs" />
-    <Compile Include="Assets\Components\Skill\ActiveSkill.cs" />
-    <Compile Include="Assets\Components\Skill\PassiveSkill.cs" />
-    <Compile Include="Assets\Components\Skill\Skill.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\JsonNetSample\JsonNetSample.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\CustomTypes.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\Enums.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\Extensions.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\FriendInfo.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\GizmoType.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\LoadbalancingPeer.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\PhotonClasses.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\PhotonLagSimulationGui.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\PhotonPlayer.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\PhotonStatsGui.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\PhotonStreamQueue.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\PhotonView.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\PingCloudRegions.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\RPC.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\Room.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\RoomInfo.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\ServerSettings.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\SocketUdp.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\SocketWebTcp.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\Views\PhotonAnimatorView.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\Views\PhotonRigidbody2DView.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\Views\PhotonRigidbodyView.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\Views\PhotonTransformView.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\Views\PhotonTransformViewPositionControl.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\Views\PhotonTransformViewPositionModel.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\Views\PhotonTransformViewRotationControl.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\Views\PhotonTransformViewRotationModel.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\Views\PhotonTransformViewScaleControl.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\Plugins\PhotonNetwork\Views\PhotonTransformViewScaleModel.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\ConnectAndJoinRandom.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\CullArea.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\InRoomChat.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\InputToEvent.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\ManualPhotonViewAllocator.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\MoveByKeys.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\NetworkCullingHandler.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\OnClickDestroy.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\OnClickInstantiate.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\OnJoinedInstantiate.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\OnStartDelete.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\PhotonPlayer\PlayerRoomIndexing.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\PickupItem.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\PickupItemSimple.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\PickupItemSyncer.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\PointedAtGameObjectInfo.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\PunPlayerScores.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\PunTeams.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\PunTurnManager.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\QuitOnEscapeOrBack.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\ShowStatusWhenConnecting.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\SmoothSyncMovement.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\SupportLogger.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\TimeKeeper.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\UI\ButtonInsideScrollList.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\UI\TextButtonTransition.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Photon Unity Networking\UtilityScripts\UI\TextToggleIsOnTransition.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\PhotonChatApi\ChatChannel.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\PhotonChatApi\ChatClient.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\PhotonChatApi\ChatDisconnectCause.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\PhotonChatApi\ChatEventCode.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\PhotonChatApi\ChatOperationCode.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\PhotonChatApi\ChatParameterCode.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\PhotonChatApi\ChatPeer.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\PhotonChatApi\ChatState.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\PhotonChatApi\ChatUserStatus.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\PhotonChatApi\IChatClientListener.cs" />
+    <Compile Include="Assets\3rd Party UnityPackages\Plugins\WebSocket\WebSocket.cs" />
+    <Compile Include="Assets\Controllers\GameScene\Combat Scene\CombatCell.cs" />
+    <Compile Include="Assets\Controllers\GameScene\Combat Scene\CombatController.cs" />
+    <Compile Include="Assets\Controllers\GameScene\HeroStatusPanelController.cs" />
+    <Compile Include="Assets\Controllers\GameScene\MainGameSceneController.cs" />
+    <Compile Include="Assets\Controllers\GameScene\World Scene\EnemyController.cs" />
+    <Compile Include="Assets\Controllers\GameScene\World Scene\EnemyManager.cs" />
+    <Compile Include="Assets\Controllers\GameScene\World Scene\PlayerController.cs" />
+    <Compile Include="Assets\Controllers\GameScene\World Scene\WorldController.cs" />
+    <Compile Include="Assets\Controllers\LobbyScene\CreateHeroPanelController.cs" />
+    <Compile Include="Assets\Controllers\LobbyScene\LobbySceneController.cs" />
+    <Compile Include="Assets\Controllers\LobbyScene\PlayerHeaderController.cs" />
+    <Compile Include="Assets\Controllers\TitleScene\LoginController.cs" />
+    <Compile Include="Assets\Controllers\ViewUtils\TabNavigation.cs" />
+    <Compile Include="Assets\Entities\Combat\CombatData.cs" />
+    <Compile Include="Assets\Entities\Combat\CombatDataUnit.cs" />
+    <Compile Include="Assets\Entities\Combat\CombatDataUnitList.cs" />
+    <Compile Include="Assets\Entities\Combat\Deep Info\AIStrategy.cs" />
+    <Compile Include="Assets\Entities\Combat\Deep Info\CombatGrid.cs" />
+    <Compile Include="Assets\Entities\Combat\Deep Info\CombatUnit.cs" />
+    <Compile Include="Assets\Entities\Combat\Deep Info\EnemyUnit.cs" />
+    <Compile Include="Assets\Entities\Combat\Deep Info\GridLocation.cs" />
+    <Compile Include="Assets\Entities\Combat\Deep Info\HeroUnit.cs" />
+    <Compile Include="Assets\Entities\Combat\Deep Info\ThreatLevel.cs" />
+    <Compile Include="Assets\Entities\Combat\LootData.cs" />
+    <Compile Include="Assets\Entities\Enemy\Encounter.cs" />
+    <Compile Include="Assets\Entities\Enemy\EncounterSummary.cs" />
+    <Compile Include="Assets\Entities\Enemy\Encounters.cs" />
+    <Compile Include="Assets\Entities\Enemy\Enemy.cs" />
+    <Compile Include="Assets\Entities\Event\EventSummary.cs" />
+    <Compile Include="Assets\Entities\Game\GameData.cs" />
+    <Compile Include="Assets\Entities\Game\GameDataMessage.cs" />
+    <Compile Include="Assets\Entities\Game\GameState.cs" />
+    <Compile Include="Assets\Entities\Hero\Hero.cs" />
+    <Compile Include="Assets\Entities\Hero\HeroSummary.cs" />
+    <Compile Include="Assets\Entities\Hero\Party.cs" />
+    <Compile Include="Assets\Entities\Item\Armor.cs" />
+    <Compile Include="Assets\Entities\Item\Inventory.cs" />
+    <Compile Include="Assets\Entities\Item\Item.cs" />
+    <Compile Include="Assets\Entities\Item\Relic.cs" />
+    <Compile Include="Assets\Entities\Item\Shield.cs" />
+    <Compile Include="Assets\Entities\Item\Weapon.cs" />
+    <Compile Include="Assets\Entities\Job\Job.cs" />
+    <Compile Include="Assets\Entities\Job\JobLevel.cs" />
+    <Compile Include="Assets\Entities\Job\Jobs.cs" />
+    <Compile Include="Assets\Entities\Login\CreateUserResponse.cs" />
+    <Compile Include="Assets\Entities\Login\Login.cs" />
+    <Compile Include="Assets\Entities\Login\User.cs" />
+    <Compile Include="Assets\Entities\Map\GroundType.cs" />
+    <Compile Include="Assets\Entities\Map\Tile.cs" />
+    <Compile Include="Assets\Entities\Map\World.cs" />
+    <Compile Include="Assets\Entities\Player\PlayerData.cs" />
+    <Compile Include="Assets\Entities\Player\PlayerSummary.cs" />
+    <Compile Include="Assets\Entities\Skill\ActiveSkill.cs" />
+    <Compile Include="Assets\Entities\Skill\PassiveSkill.cs" />
+    <Compile Include="Assets\Entities\Skill\Skill.cs" />
+    <Compile Include="Assets\Input\CameraMovement.cs" />
     <Compile Include="Assets\Input\MouseCameraPan.cs" />
     <Compile Include="Assets\Input\PlayerMovement.cs" />
+    <Compile Include="Assets\Networking\CombatSocket.cs" />
     <Compile Include="Assets\Networking\LobbyManager.cs" />
     <Compile Include="Assets\Networking\NetworkManager.cs" />
-    <Compile Include="Assets\Networking\Server Entities\CreateUserResponse.cs" />
-    <Compile Include="Assets\Networking\Server Entities\JsonHelper.cs" />
-    <Compile Include="Assets\Networking\Server Entities\Login.cs" />
-    <Compile Include="Assets\Networking\Server Entities\RestUtil.cs" />
-    <Compile Include="Assets\Networking\Server Entities\User.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\CustomTypes.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\Enums.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\Extensions.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\FriendInfo.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\GizmoType.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\LoadbalancingPeer.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonClasses.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonLagSimulationGui.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonPlayer.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonStatsGui.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonStreamQueue.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonView.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\PingCloudRegions.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\RPC.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\Room.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\RoomInfo.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\ServerSettings.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\SocketUdp.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\SocketWebTcp.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\Views\PhotonAnimatorView.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\Views\PhotonRigidbody2DView.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\Views\PhotonRigidbodyView.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\Views\PhotonTransformView.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\Views\PhotonTransformViewPositionControl.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\Views\PhotonTransformViewPositionModel.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\Views\PhotonTransformViewRotationControl.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\Views\PhotonTransformViewRotationModel.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\Views\PhotonTransformViewScaleControl.cs" />
-    <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\Views\PhotonTransformViewScaleModel.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\ConnectAndJoinRandom.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\CullArea.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\InRoomChat.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\InputToEvent.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\ManualPhotonViewAllocator.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\MoveByKeys.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\NetworkCullingHandler.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\OnClickDestroy.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\OnClickInstantiate.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\OnJoinedInstantiate.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\OnStartDelete.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\PhotonPlayer\PlayerRoomIndexing.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\PickupItem.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\PickupItemSimple.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\PickupItemSyncer.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\PointedAtGameObjectInfo.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\PunPlayerScores.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\PunTeams.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\PunTurnManager.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\QuitOnEscapeOrBack.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\ShowStatusWhenConnecting.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\SmoothSyncMovement.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\SupportLogger.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TimeKeeper.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\UI\ButtonInsideScrollList.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\UI\TextButtonTransition.cs" />
-    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\UI\TextToggleIsOnTransition.cs" />
-    <Compile Include="Assets\PhotonChatApi\ChatChannel.cs" />
-    <Compile Include="Assets\PhotonChatApi\ChatClient.cs" />
-    <Compile Include="Assets\PhotonChatApi\ChatDisconnectCause.cs" />
-    <Compile Include="Assets\PhotonChatApi\ChatEventCode.cs" />
-    <Compile Include="Assets\PhotonChatApi\ChatOperationCode.cs" />
-    <Compile Include="Assets\PhotonChatApi\ChatParameterCode.cs" />
-    <Compile Include="Assets\PhotonChatApi\ChatPeer.cs" />
-    <Compile Include="Assets\PhotonChatApi\ChatState.cs" />
-    <Compile Include="Assets\PhotonChatApi\ChatUserStatus.cs" />
-    <Compile Include="Assets\PhotonChatApi\IChatClientListener.cs" />
-    <Compile Include="Assets\View\GameScene\CameraMovement.cs" />
-    <Compile Include="Assets\View\GameScene\GameService.cs" />
-    <Compile Include="Assets\View\GameScene\HeroStatusPanelController.cs" />
-    <Compile Include="Assets\View\GameScene\MainGameSceneController.cs" />
-    <Compile Include="Assets\View\GameScene\PlayerManager.cs" />
-    <Compile Include="Assets\View\GameScene\WorldController.cs" />
-    <Compile Include="Assets\View\LobbyScene\CreateHeroPanelController.cs" />
-    <Compile Include="Assets\View\LobbyScene\LobbySceneController.cs" />
-    <Compile Include="Assets\View\LobbyScene\PlayerHeaderController.cs" />
-    <Compile Include="Assets\View\TabNavigation.cs" />
-    <Compile Include="Assets\View\TitleScene\LoginController.cs" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\Photon Unity Networking\changelog.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
-    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\Photon Unity Networking\readme.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets\Photon Unity Networking\link.xml" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
+    <Compile Include="Assets\Services\CombatService.cs" />
+    <Compile Include="Assets\Services\EnemyService.cs" />
+    <Compile Include="Assets\Services\GameDataService.cs" />
+    <Compile Include="Assets\Services\GameService.cs" />
+    <Compile Include="Assets\Utils\CombatUnitClassConverter.cs" />
+    <Compile Include="Assets\Utils\CombatUnitConverter.cs" />
+    <Compile Include="Assets\Utils\JsonHelper.cs" />
+    <Compile Include="Assets\Utils\RestUtil.cs" />
+    <None Include="Assets\3rd Party UnityPackages\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
+    <None Include="Assets\3rd Party UnityPackages\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\3rd Party UnityPackages\Photon Unity Networking\changelog.txt" />
+    <None Include="Assets\3rd Party UnityPackages\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\3rd Party UnityPackages\Plugins\release_history.txt" />
+    <None Include="Assets\3rd Party UnityPackages\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\3rd Party UnityPackages\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\3rd Party UnityPackages\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\3rd Party UnityPackages\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\3rd Party UnityPackages\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\3rd Party UnityPackages\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\3rd Party UnityPackages\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\3rd Party UnityPackages\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\3rd Party UnityPackages\Photon Unity Networking\readme.txt" />
+    <None Include="Assets\3rd Party UnityPackages\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\3rd Party UnityPackages\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\3rd Party UnityPackages\Plugins\Photon3Unity3D.xml" />
+    <None Include="Assets\3rd Party UnityPackages\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\3rd Party UnityPackages\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\3rd Party UnityPackages\Photon Unity Networking\link.xml" />
+    <None Include="Assets\3rd Party UnityPackages\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\3rd Party UnityPackages\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/projects/RpgRoyale/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Editor">
-      <HintPath>C:/projects/RpgRoyale/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/projects/RpgRoyale/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/projects/RpgRoyale/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/projects/RpgRoyale/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/projects/RpgRoyale/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/projects/RpgRoyale/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-weaver.Editor">
-      <HintPath>C:/projects/RpgRoyale/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-      <HintPath>C:/projects/RpgRoyale/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/projects/RpgRoyale/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:/projects/RpgRoyale/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>C:/projects/RpgRoyale/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
-      <HintPath>C:/projects/RpgRoyale/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>C:/projects/RpgRoyale/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>C:/projects/RpgRoyale/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/projects/RpgRoyale/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/projects/RpgRoyale/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-      <HintPath>C:/projects/RpgRoyale/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/projects/RpgRoyale/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Runtime">
-      <HintPath>C:/projects/RpgRoyale/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0a7/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -444,26 +456,23 @@
     <Reference Include="UnityEngine.XRModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0a7/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
-    <Reference Include="Photon3Unity3D">
-      <HintPath>C:/projects/RpgRoyale/Assets/Plugins/Photon3Unity3D.dll</HintPath>
-    </Reference>
-    <Reference Include="websocket-sharp">
-      <HintPath>C:/projects/RpgRoyale/Assets/Plugins/WebSocket/websocket-sharp.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/projects/RpgRoyale/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/projects/RpgRoyale/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/projects/RpgRoyale/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0a7/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Assets/3rd Party UnityPackages/JsonNet/Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0a7/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    <Reference Include="Photon3Unity3D">
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Assets/3rd Party UnityPackages/Plugins/Photon3Unity3D.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>C:/projects/RpgRoyale/RpgRoyale/Assets/3rd Party UnityPackages/Plugins/WebSocket/websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0a7/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -819,12 +828,6 @@
     <Reference Include="Boo.Lang">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0a7/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{C450D05F-9097-A27A-946B-FEB0AF4FD6C8}</Project>
-      <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

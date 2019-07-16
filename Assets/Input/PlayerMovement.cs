@@ -20,19 +20,23 @@ public class PlayerMovement : Photon.MonoBehaviour {
     private int yChange;
     private bool isMoving = false;
     private bool inCombat = false;
+    private bool inWorld = true;
     public Vector3 startPosition;
     public Vector3 endPosition;
     private float t;
     private float factor;
-    PlayerManager player;
+    PlayerController player;
     World world;
+    MainGameSceneController gameController;
 
     private void Start()
     {
-        player = this.gameObject.GetComponent<PlayerManager>();
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<MainGameSceneController>();
+        player = this.gameObject.GetComponent<PlayerController>();
         startPosition = new Vector3(player.gameData.locX, player.gameData.locY, 0);
         transform.position = startPosition;
         world = WorldController.World;
+        player.gameData.gameState = "world";
         GameDataService.updateGameData(player.gameData);
     }
 
@@ -43,18 +47,18 @@ public class PlayerMovement : Photon.MonoBehaviour {
             return;
         }
 
-        if (player.gameData.gameState.Equals("combat"))
+        if (player.gameData.gameState.Equals("world"))
         {
-            inCombat = true;
-        } else if (player.gameData.gameState.Equals("world"))
+            inWorld = true;
+        } else
         {
-            inCombat = false;
+            inWorld = false;
         }
 
         xChange = 0;
         yChange = 0;
 
-        if (!isMoving && !inCombat)
+        if (!isMoving && inWorld)
         {
             if (Input.GetMouseButton(0))
             {
@@ -140,6 +144,19 @@ public class PlayerMovement : Photon.MonoBehaviour {
         }
     }
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {     
+        if (collision.gameObject.GetComponent<EnemyController>() != null)
+        {
+            Debug.Log("Player collided with an enemy!");
+            player.gameData.gameState = "combat";
+            player.gameData.combatEncounterId = collision.gameObject.GetComponent<EnemyController>().encounter.encounterId;
+            GameDataService.updateGameData(player.gameData);
+            gameController.combatWindow.SetActive(true);
+            gameController.combatWindow.GetComponent<CombatController>().StartNewCombat(player.gameData);
+        }
+    }
+
     public IEnumerator move(Transform transform)
     {
         isMoving = true;
@@ -176,6 +193,7 @@ public class PlayerMovement : Photon.MonoBehaviour {
         }
         
         isMoving = false;
+        
         if (player.gameData.gameState.Equals("combat"))
         {
             inCombat = true;

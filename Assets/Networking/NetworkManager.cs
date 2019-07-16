@@ -34,13 +34,13 @@ public class NetworkManager : Photon.PunBehaviour {
         // pick a random spawn point
         int randomSpawnPoint = Random.Range(0, spawnpoints.Count);
         GameObject playerSpawn = PhotonNetwork.Instantiate(player.name, new Vector3(0, 0, 0), Quaternion.identity, 0);
-        playerSpawn.GetComponent<PlayerManager>().gameData.gameId = gameId;
-        playerSpawn.GetComponent<PlayerManager>().gameData.locX = (int)spawnpoints[randomSpawnPoint].transform.position.x;
-        playerSpawn.GetComponent<PlayerManager>().gameData.locY = (int)spawnpoints[randomSpawnPoint].transform.position.y;
+        playerSpawn.GetComponent<PlayerController>().gameData.gameId = gameId;
+        playerSpawn.GetComponent<PlayerController>().gameData.locX = (int)spawnpoints[randomSpawnPoint].transform.position.x;
+        playerSpawn.GetComponent<PlayerController>().gameData.locY = (int)spawnpoints[randomSpawnPoint].transform.position.y;
         playerCamera.transform.SetParent(playerSpawn.transform);
         playerCamera.transform.localPosition.Set(playerSpawn.transform.position.x + 2.5f, playerSpawn.transform.position.y, playerSpawn.transform.position.z);
         playerSpawn.transform.position = spawnpoints[randomSpawnPoint].transform.position;
-        PlayerManager playerManager = playerSpawn.GetComponent<PlayerManager>();
+        PlayerController playerManager = playerSpawn.GetComponent<PlayerController>();
         playerManager.playerData.name = PlayerPrefs.GetString("user");
         playerManager.gameData.playerId = PlayerPrefs.GetString("user");
         playerManager.playerData.session = PlayerPrefs.GetString("sessionId");
